@@ -31,7 +31,7 @@
 
     <!-- (1) incomingCallWidget: the UI displayed while an incoming call is ringing. -->
     <com.android.internal.widget.SlidingTab
-        android:id="@+id/incomingSlidingTabCallWidget"
+        android:id="@+id/incomingCallWidget"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
