@@ -44,6 +44,7 @@
             android:title="@string/voicemail_settings"
             android:persistent="false">
 
+
             <!-- Note for all com.android.phone.EditPhoneNumberPreference objects
 
            The last several attributes are for use with the EditText field
@@ -62,6 +63,26 @@
                 android:singleLine="true"
                 android:autoText="false" />
       </PreferenceScreen>
+  </PreferenceCategory>
+      
+    <PreferenceCategory
+	    android:title="@string/other_providers">
+      <CheckBoxPreference
+	    android:key="vm_uses_googlevoice"
+	    android:title="@string/title_vm_uses_googlevoice"
+            android:summaryOn="@string/summary_on_vm_uses_googlevoice"
+            android:summaryOff="@string/summary_off_vm_uses_googlevoice"/>
+      <CheckBoxPreference
+	    android:key="vm_uses_youmail"
+	    android:title="@string/title_vm_uses_youmail"
+            android:summaryOn="@string/summary_on_vm_uses_youmail"
+            android:summaryOff="@string/summary_off_vm_uses_youmail"/>
+      <CheckBoxPreference
+	    android:key="vm_uses_verizon"
+	    android:title="@string/title_vm_uses_verizon"
+            android:summaryOn="@string/summary_on_vm_uses_verizon"
+            android:summaryOff="@string/summary_off_vm_uses_verizon"/>
+
   </PreferenceCategory>
 
   <PreferenceCategory android:key="button_misc_category_key"
