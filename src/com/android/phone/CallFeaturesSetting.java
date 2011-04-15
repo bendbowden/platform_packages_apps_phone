@@ -178,15 +178,6 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final int MSG_VM_OK = 600;
     private static final int MSG_VM_NOCHANGE = 700;
 
-    // use google voice visual voicemail defaults
-    private static final String VM_USES_GOOGLEVOICE = "vm_uses_googlevoice";
-
-    // use youmail visual voicemail defaults
-    private static final String VM_USES_YOUMAIL = "vm_uses_youmail";
-
-    // use verizon visual voicemail defaults
-    private static final String VM_USES_VERIZON = "vm_uses_verizon";
-
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
     private CheckBoxPreference mButtonAutoRetry;
@@ -195,9 +186,6 @@ public class CallFeaturesSetting extends PreferenceActivity
     private ListPreference mButtonTTY;
     private ListPreference mVoicemailProviders;
     private PreferenceScreen mVoicemailSettings;
-    private CheckBoxPreference mVmUsesGoogleVoice;
-    private CheckBoxPreference mVmUsesYoumail;
-    private CheckBoxPreference mVmUsesVerizon;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -402,15 +390,6 @@ public class CallFeaturesSetting extends PreferenceActivity
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mSubMenuVoicemailSettings) {
             return true;
-        } else if (preference == mVmUsesGoogleVoice) {
-            Settings.System.putInt(getContentResolver(), Settings.System.VM_USES_GOOGLEVOICE,
-                    mVmUsesGoogleVoice.isChecked() ? 1 : 0);
-        } else if (preference == mVmUsesYoumail) {
-            Settings.System.putInt(getContentResolver(), Settings.System.VM_USES_YOUMAIL,
-                    mVmUsesYoumail.isChecked() ? 1 : 0);
-        } else if (preference == mVmUsesVerizon) {
-            Settings.System.putInt(getContentResolver(), Settings.System.VM_USES_VERIZON,
-                    mVmUsesVerizon.isChecked() ? 1 : 0);
         } else if (preference == mButtonDTMF) {
             return true;
         } else if (preference == mButtonTTY) {
@@ -1328,12 +1307,6 @@ public class CallFeaturesSetting extends PreferenceActivity
         mPhone = PhoneFactory.getDefaultPhone();
 
         addPreferencesFromResource(R.xml.call_feature_setting);
-
-	mVmUsesGoogleVoice = (CheckBoxPreference) findPreference(VM_USES_GOOGLEVOICE);
-
-	mVmUsesYoumail = (CheckBoxPreference) findPreference(VM_USES_YOUMAIL);
-
-	mVmUsesVerizon = (CheckBoxPreference) findPreference(VM_USES_VERIZON);
 
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
